@@ -12,7 +12,7 @@ uint8_t oldBank = 0;
 uint8_t i = 0;
 
 uint8_t getButtonPin(uint8_t index) {
-  return bankPins[index * 2];
+  return bankPins[index*2];
 }
 
 uint8_t getLedPin(uint8_t index) {
