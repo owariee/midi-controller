@@ -10,12 +10,12 @@ uint16_t oldJoyValue = 0;
 uint16_t joyValueDiff = 0;
 const uint8_t joyUpdateDiff = 2;
 
-uint8_t joyGetPercentage() {
-  return map(joyValue, joyRangeLow, joyRangeHigh, 0, 100);
-}
-
 uint8_t joyMap() {
   return map(joyValue, joyRangeLow, joyRangeHigh, 0, 127);
+}
+
+uint8_t joyControllerGetPercentage() {
+  return map(joyValue, joyRangeLow, joyRangeHigh, 0, 100);
 }
 
 void joyControllerLogic() {
