@@ -1,14 +1,11 @@
-#include "midiMessage.h"
-#include "joyController.h"
-
-const uint8_t joyPin = 0;
-const uint16_t joyRangeLow = 379;
-const uint16_t joyRangeHigh = 637;
+const std::uint8_t joyPin = 0;
+const std::uint16_t joyRangeLow = 379;
+const std::uint16_t joyRangeHigh = 637;
 
 uint16_t joyValue = 0;
 uint16_t oldJoyValue = 0;
 uint16_t joyValueDiff = 0;
-const uint8_t joyUpdateDiff = 2;
+const std::uint8_t joyUpdateDiff = 2;
 
 uint8_t joyMap() {
   return map(joyValue, joyRangeLow, joyRangeHigh, 0, 127);
@@ -28,4 +25,3 @@ void joyControllerLogic() {
   }
   delay(2);
 }
-

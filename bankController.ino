@@ -1,6 +1,3 @@
-#include "midiMessage.h"
-#include "bankController.h"
-
 uint8_t bankPins[] = {
 // BUTTON, LED
 }; // Max 128 banks
@@ -53,10 +50,9 @@ void bankControllerLogic() {
     }
     digitalWrite(getLedPin(bank), HIGH);
     if(oldBank != hiddenBank) {
-      midiMessage(127, oldBank, 127); // Channel 1 Note off
+      midiMessage(128, oldBank, 0); // Channel 1 Note off
     }
     midiMessage(144, bank, 127); // Channel 1 Note on
     oldBank = bank;
   }
 }
-
