@@ -8,6 +8,8 @@ private:
     uint8_t pin;
     bool valueChanged;
     uint8_t value;
+    uint32_t lastDebounce;
+    uint8_t debounceDelay;
 
 public:
     Potentiometer(uint8_t pin);
