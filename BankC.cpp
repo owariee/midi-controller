@@ -3,8 +3,9 @@
 #include <stdio.h>
 
 void BankC::drawLCD() {
-    sprintf(BankC::offsetText, "Offset: %i", BankC::offset);
-    sprintf(BankC::bankText, "Bank: %i", BankC::bankIndexRelative);
+    MidiS* midiSerial = BankC::mappings->getMidiSerial();
+    sprintf(BankC::offsetText, "Offset %i Ch %i", BankC::offset, midiSerial->getChannel());
+    sprintf(BankC::bankText, "Bank %i (%i)", BankC::bankIndexRelative, midiSerial->getBank());
 
     BankC::mappings->getLCD()->draw(offsetText, bankText);
 }
@@ -35,11 +36,11 @@ void BankC::setActiveBank(uint8_t index) {
         }
     }
 
+    // send midi signal
+    BankC::mappings->getMidiSerial()->changeBank(BankC::bankIndex);
+
     // update lcd
     BankC::drawLCD();
-
-    // send midi signal
-    // To-Do
 }
 
 void BankC::toggleEffect(uint8_t index) {
@@ -47,6 +48,7 @@ void BankC::toggleEffect(uint8_t index) {
     BankC::banks[BankC::bankIndex]->setEffect(index, actualState);
 
     // send midi signal
+    BankC::mappings->getMidiSerial()->toggleEffect(index);
 
     if(actualState) {
         BankC::mappings->getLED(index+EFFECT_0_LED)->on();
@@ -59,16 +61,16 @@ BankC::BankC(Mappings* mappings) {
     BankC::bankIndex = 0;
     BankC::bankIndexRelative = 0;
     BankC::offset = 0;
-    BankC::offsetDatatypeLimit = 255;
+    BankC::offsetDatatypeLimit = 6;
     BankC::offsetActiveBankIndex = new uint8_t[BankC::offsetDatatypeLimit];
-    BankC::bankNumber = BankC::offsetDatatypeLimit * 4;
+    BankC::bankNumber = (BankC::offsetDatatypeLimit+1) * 4;
     BankC::mappings = mappings;
     BankC::banks = new Bank*[BankC::bankNumber];
     BankC::bankText = new char[16];
     BankC::offsetText = new char[16];
 
     // init per offset bankIndexRelative
-    for(uint8_t i = 0; i < BankC::offsetDatatypeLimit; i++) {
+    for(uint8_t i = 0; i < BankC::offsetDatatypeLimit+1; i++) {
         BankC::offsetActiveBankIndex[i] = 0;
     }
 
@@ -98,7 +100,7 @@ void BankC::update() {
             BankC::toggleEffect(i-EFFECT_0_BUTTON);
         }
     }
-    if(BankC::mappings->getButton(OFFSET_0_BUTTON)->isPressed() && BankC::offset < 255) {
+    if(BankC::mappings->getButton(OFFSET_0_BUTTON)->isPressed() && BankC::offset < BankC::offsetDatatypeLimit) {
         BankC::offsetActiveBankIndex[BankC::offset] = BankC::bankIndexRelative;
         BankC::offset++;
         BankC::setActiveBank(BankC::offsetActiveBankIndex[BankC::offset]);

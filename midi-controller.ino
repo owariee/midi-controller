@@ -5,10 +5,13 @@ Mappings mappings;
 BankC* bankc;
 
 void setup() { 
-    // init lcd pins
+    // init lcd 
     LCD* lcd = mappings.getLCD();
     lcd->banner("MIDI Controller", "Firmware v0.1");
     lcd->banner("Source code at", "git.sabatini.xyz");
+
+    // init power led
+    mappings.getLED(POWER_LED)->on();
 
     // init serial
     Serial.begin(115200);

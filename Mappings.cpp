@@ -26,12 +26,16 @@ Mappings::Mappings() {
     for(uint8_t i = 0; i < Mappings::ledNumber; i++) {
         Mappings::leds[i] = new LED(ledPins[i]);
     }
+
+    // init midi trough serial
+    Mappings::midiSerial = new MidiS();
 }
 
 Mappings::~Mappings() {
     delete[] Mappings::buttons;
     delete Mappings::lcd;
     delete[] Mappings::leds;
+    delete Mappings::midiSerial;
 }
 
 void Mappings::update() {
@@ -50,4 +54,8 @@ LCD* Mappings::getLCD() {
 
 LED* Mappings::getLED(uint8_t index) {
     return Mappings::leds[index];
+}
+
+MidiS* Mappings::getMidiSerial() {
+    return Mappings::midiSerial;
 }

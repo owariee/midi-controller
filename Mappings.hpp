@@ -5,6 +5,7 @@
 #include "Button.hpp"
 #include "LCD.hpp"
 #include "LED.hpp"
+#include "MidiS.hpp"
 
 #define BANK_0_BUTTON 0
 #define BANK_1_BUTTON 1
@@ -38,6 +39,8 @@ private:
     uint8_t ledNumber;
     LED** leds;
 
+    MidiS* midiSerial;
+
 public:
     Mappings();
     ~Mappings();
@@ -46,6 +49,7 @@ public:
     Button* getButton(uint8_t index);
     LCD* getLCD();
     LED* getLED(uint8_t index);
+    MidiS* getMidiSerial();
 };
 
 #endif//MAPPINGS_HPP
