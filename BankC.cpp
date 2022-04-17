@@ -110,4 +110,14 @@ void BankC::update() {
         BankC::offset--;
         BankC::setActiveBank(BankC::offsetActiveBankIndex[BankC::offset]);
     }
+    Potentiometer* pot = BankC::mappings->getPotentiometer();
+    if(pot->isValueChanged()) {
+        uint8_t potValue = pot->getValue();
+        if(potValue == 0) {
+            BankC::mappings->getLED(POTENTIOMETER_LED)->off();
+        } else {
+            BankC::mappings->getMidiSerial()->changePotentiometer(potValue);
+            BankC::mappings->getLED(POTENTIOMETER_LED)->on();
+        }
+    }
 }

@@ -29,6 +29,9 @@ Mappings::Mappings() {
 
     // init midi trough serial
     Mappings::midiSerial = new MidiS();
+
+    // init potentiometer
+    Mappings::potentiometer = new Potentiometer(POTENTIOMETER_PIN);
 }
 
 Mappings::~Mappings() {
@@ -36,12 +39,14 @@ Mappings::~Mappings() {
     delete Mappings::lcd;
     delete[] Mappings::leds;
     delete Mappings::midiSerial;
+    delete Mappings::potentiometer;
 }
 
 void Mappings::update() {
     for(uint8_t i = 0; i < Mappings::buttonNumber; i++) {
         Mappings::buttons[i]->update();
     }
+    Mappings::potentiometer->update();
 }
 
 Button* Mappings::getButton(uint8_t index) {
@@ -58,4 +63,8 @@ LED* Mappings::getLED(uint8_t index) {
 
 MidiS* Mappings::getMidiSerial() {
     return Mappings::midiSerial;
+}
+
+Potentiometer* Mappings::getPotentiometer() {
+    return Mappings::potentiometer;
 }

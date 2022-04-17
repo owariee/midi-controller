@@ -6,6 +6,7 @@
 #include "LCD.hpp"
 #include "LED.hpp"
 #include "MidiS.hpp"
+#include "Potentiometer.hpp"
 
 #define BANK_0_BUTTON 0
 #define BANK_1_BUTTON 1
@@ -41,6 +42,8 @@ private:
 
     MidiS* midiSerial;
 
+    Potentiometer* potentiometer;
+
 public:
     Mappings();
     ~Mappings();
@@ -50,6 +53,7 @@ public:
     LCD* getLCD();
     LED* getLED(uint8_t index);
     MidiS* getMidiSerial();
+    Potentiometer* getPotentiometer();
 };
 
 #endif//MAPPINGS_HPP

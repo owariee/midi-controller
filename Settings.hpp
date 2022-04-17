@@ -27,5 +27,6 @@
 #define LCD_0_D5_PIN 51
 #define LCD_0_D6_PIN 52
 #define LCD_0_D7_PIN 53
+#define POTENTIOMETER_PIN 03
 
 #endif//SETTINGS_HPP
