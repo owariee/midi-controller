@@ -2,9 +2,9 @@
 
 This project is a implementation of firmware for a midi controller using Arduino Mega.
 
-# Requirements
+## Requirements
 
-## Arch Linux
+### Arch Linux
 
 ```
 $ pacman -S arduino-cli
@@ -14,7 +14,7 @@ or
 $ yay -S arduino-cli
 ```
 
-# How to compile
+## How to compile
 
 Adjust the compile.sh to your needs and:
 
@@ -22,7 +22,7 @@ Adjust the compile.sh to your needs and:
 $ ./compile.sh
 ```
 
-# How to upload
+## How to upload
 
 Adjust the upload.sh to your needs then:
 
