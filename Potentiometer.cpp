@@ -14,11 +14,9 @@ Potentiometer::~Potentiometer() {
 
 uint8_t Potentiometer::update() {
     uint32_t read = analogRead(Potentiometer::pin);
-    uint8_t newValue = map(read, 1, 1024, 0, 127);
+    uint8_t newValue = map(read, 1, 1024, 0, 128);
 
     if(newValue != Potentiometer::value) {
-        Serial.print(newValue);
-        Serial.println("teste");
         Potentiometer::valueChanged = true;
         Potentiometer::value = newValue;
     }
