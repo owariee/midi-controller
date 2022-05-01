@@ -14,6 +14,14 @@ or
 $ yay -S arduino-cli
 ```
 
+## Install dependencies
+
+In your terminal:
+
+```
+$ arduino-cli lib uninstall LiquidCrystal@1.0.7
+```
+
 ## How to compile
 
 Adjust the compile.sh to your needs and:
