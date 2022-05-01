@@ -19,7 +19,7 @@ $ yay -S arduino-cli
 In your terminal:
 
 ```
-$ arduino-cli lib uninstall LiquidCrystal@1.0.7
+$ arduino-cli lib install LiquidCrystal@1.0.7
 ```
 
 ## How to compile
