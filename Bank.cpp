@@ -22,7 +22,7 @@ bool Bank::getEffect(uint8_t index) {
 }
 
 void Bank::setEffect(uint8_t index, bool state) {
-    if(index < Bank::effectNumber || index > -1) {
+    if(index < Bank::effectNumber && index > -1) {
         Bank::effects[index] = state;
     }
 }
