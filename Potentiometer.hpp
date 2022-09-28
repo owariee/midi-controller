@@ -6,14 +6,12 @@
 class Potentiometer {
 private:
     uint8_t pin;
-    bool valueChanged;
     uint8_t value;
+    bool valueChanged;
     uint32_t lastDebounce;
-    uint8_t debounceDelay;
 
 public:
     Potentiometer(uint8_t pin);
-    ~Potentiometer();
 
     uint8_t update();
     bool isValueChanged();
