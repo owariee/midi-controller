@@ -21,7 +21,8 @@ void LCD::draw(const char* msg, const char* msg1, uint8_t offset, uint8_t offset
     LCD::lcd->write(msg1);
 }
 
-void LCD::banner(const char* msg, const char* msg1, uint8_t offset, uint8_t offset1, uint16_t delayMs) {
+void LCD::banner(const char* msg, const char* msg1, uint8_t offset, uint8_t offset1,
+                 uint16_t delayMs) {
     LCD::draw(msg, msg1, offset, offset1);
     delay(delayMs);
 }
