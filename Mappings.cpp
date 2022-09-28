@@ -68,3 +68,5 @@ MidiS* Mappings::getMidiSerial() {
 Potentiometer* Mappings::getPotentiometer() {
     return Mappings::potentiometer;
 }
+
+// vim:tabstop=4:shiftwidth=4:expandtab:textwidth=100
