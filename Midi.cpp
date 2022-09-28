@@ -4,12 +4,12 @@
 
 #include <Arduino.h>
 
-void midiMessage2(byte status, byte data) {
+void midiMessage2(int8_t status, int8_t data) {
     Serial.write(status);
     Serial.write(data);
 }
 
-void midiMessage3(byte status, byte data, byte data2) {
+void midiMessage3(int8_t status, int8_t data, int8_t data2) {
     Serial.write(status);
     Serial.write(data);
     Serial.write(data2);

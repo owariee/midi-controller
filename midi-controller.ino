@@ -3,9 +3,6 @@
 #include "Components.hpp"
 #include "Settings.hpp"
 
-// Midi            change byte to uint8_t/int8_t
-// Mappings        make new hardware instantiation easy
-
 Mappings mapp;
 BankC* bankc;
 
