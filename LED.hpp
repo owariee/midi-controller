@@ -10,8 +10,7 @@ private:
 public:
     LED(uint8_t pin);
 
-    void on();
-    void off();
+    void set(bool state);
 };
 
 #endif//LED_HPP

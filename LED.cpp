@@ -7,11 +7,11 @@ LED::LED(uint8_t pin) {
     pinMode(LED::pin, OUTPUT);
 }
 
-void LED::on() {
-    digitalWrite(LED::pin, HIGH);
-}
-
-void LED::off() {
+void LED::set(bool state) {
+    if(state) {
+        digitalWrite(LED::pin, HIGH);
+        return;
+    }
     digitalWrite(LED::pin, LOW);
 }
 
