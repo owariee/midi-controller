@@ -14,7 +14,8 @@ public:
     ~LCD();
 
     void draw(const char* msg, const char* msg1 = "", uint8_t offset = 0, uint8_t offset1 = 0);
-    void banner(const char* msg, const char* msg1 = "", uint8_t offset = 0, uint8_t offset1 = 0, uint16_t delayMs = 2000);
+    void banner(const char* msg, const char* msg1 = "", uint8_t offset = 0, uint8_t offset1 = 0,
+                uint16_t delayMs = 2000);
 };
 
 #endif//LCD_HPP
