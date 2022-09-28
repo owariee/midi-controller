@@ -1,30 +1,23 @@
 #include "Bank.hpp"
 
-Bank::Bank(uint8_t effectNumber) {
-    Bank::effectNumber = effectNumber;
-    Bank::effects = new bool[Bank::effectNumber];
+#include "Settings.hpp"
 
-    for(uint8_t i = 0; i < Bank::effectNumber; i++) {
-        Bank::effects[i] = false;
-    }
+Bank::Bank() {
+    Bank::effects = new bool[MIDI_EFFECTS];
 }
 
 Bank::~Bank() {
     delete[] Bank::effects;
 }
 
-uint8_t Bank::getEffectNumber() {
-    return Bank::effectNumber;
-}
-
 bool Bank::getEffect(uint8_t index) {
+    if(index >= MIDI_EFFECTS) return false;
     return Bank::effects[index];
 }
 
 void Bank::setEffect(uint8_t index, bool state) {
-    if(index < Bank::effectNumber && index > -1) {
-        Bank::effects[index] = state;
-    }
+    if(index >= MIDI_EFFECTS) return;
+    Bank::effects[index] = state;
 }
 
 // vim:tabstop=4:shiftwidth=4:expandtab:textwidth=100
