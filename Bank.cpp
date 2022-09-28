@@ -3,7 +3,7 @@
 #include "Settings.hpp"
 
 Bank::Bank() {
-    Bank::effects = new bool[MIDI_EFFECTS];
+    Bank::effects = new bool[MIDI_EFFECTS]();
 }
 
 Bank::~Bank() {
