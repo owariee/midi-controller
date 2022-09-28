@@ -18,3 +18,5 @@ public:
 };
 
 #endif//BANK_HPP
+
+// vim:tabstop=4:shiftwidth=4:expandtab:textwidth=100

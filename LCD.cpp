@@ -25,3 +25,5 @@ void LCD::banner(const char* msg, const char* msg1, uint8_t offset, uint8_t offs
     LCD::draw(msg, msg1, offset, offset1);
     delay(delayMs);
 }
+
+// vim:tabstop=4:shiftwidth=4:expandtab:textwidth=100

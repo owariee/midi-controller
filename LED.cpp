@@ -19,3 +19,5 @@ void LED::on() {
 void LED::off() {
     digitalWrite(LED::pin, LOW);
 }
+
+// vim:tabstop=4:shiftwidth=4:expandtab:textwidth=100

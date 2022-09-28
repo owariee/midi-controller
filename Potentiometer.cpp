@@ -39,3 +39,5 @@ bool Potentiometer::isValueChanged() {
 uint8_t Potentiometer::getValue() {
     return Potentiometer::value;
 }
+
+// vim:tabstop=4:shiftwidth=4:expandtab:textwidth=100

@@ -26,3 +26,5 @@ void Bank::setEffect(uint8_t index, bool state) {
         Bank::effects[index] = state;
     }
 }
+
+// vim:tabstop=4:shiftwidth=4:expandtab:textwidth=100
