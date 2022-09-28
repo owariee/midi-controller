@@ -1,32 +1,24 @@
 #include "BankC.hpp"
 #include "Mappings.hpp"
 #include "Components.hpp"
+#include "Settings.hpp"
 
-// midi-controller.ino Put baud rate intro settings, move start code to BankC
 // Midi            change byte to uint8_t/int8_t
 // Mappings        make new hardware instantiation easy
 
-Mappings mappings;
+Mappings mapp;
 BankC* bankc;
 
 void setup() { 
-    // init lcd 
-    LCD* lcd = mappings.getLCD();
-    lcd->banner("MIDI Controller", "Firmware v0.1");
-    lcd->banner("Source code at", "git.sabatini.xyz");
-
-    // init power led
-    mappings.getLED(POWER_LED)->set(true);
-
-    // init serial
-    Serial.begin(115200);
-
-    // init bank controller
-    bankc = new BankC(&mappings);
+    mapp.getLCD()->banner("MIDI Controller", "Firmware v0.1!", 0, 1);
+    mapp.getLCD()->banner("Source code at", "git.sabatini.xyz", 1);
+    mapp.getLED(POWER_LED)->set(true);
+    Serial.begin(BAUD_RATE);
+    bankc = new BankC(&mapp);
 }
 
 void loop() {
-    mappings.update();
+    mapp.update();
     bankc->update();
 }
 

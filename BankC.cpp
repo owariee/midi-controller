@@ -56,9 +56,9 @@ void BankC::toggleEffect(uint8_t index) {
 void BankC::drawLCD() {
     char* line1 = new char[16];
     char* line2 = new char[16];
-    sprintf(line1, "Offset %i C%i", BankC::offset, MIDI_CHANNEL);
-    sprintf(line2, "Bank %i (%i)", BankC::bankId[BankC::offset], BankC::getBankNumber());
-    BankC::map->getLCD()->draw(line1, line2);
+    sprintf(line1, "Bank %i Prg %i", BankC::bankId[BankC::offset], BankC::getBankNumber());
+    sprintf(line2, "Offset %i Ch %i", BankC::offset, MIDI_CHANNEL);
+    BankC::map->getLCD()->draw(line1, line2, 1, 1);
 }
 
 void BankC::changeOffset(int8_t offset) {
