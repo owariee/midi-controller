@@ -29,6 +29,7 @@
 #define LCD_0_D7_PIN 53
 #define POTENTIOMETER_PIN 03
 #define MIDI_CHANNEL 00
+#define MIDI_EFFECTS 04
 
 #endif//SETTINGS_HPP
 
