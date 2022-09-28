@@ -7,16 +7,14 @@ class Button {
 private:
     uint8_t pin;
     bool state;
-    bool pressed;
+    bool press;
     bool lastState;
     uint32_t lastDebounce;
-    uint32_t debounceDelay;
     
 public:
     Button(uint8_t pin);
-    ~Button();
 
-    bool isPressed();
+    bool onPress();
     void update();
 };
 

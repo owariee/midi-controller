@@ -1,24 +1,20 @@
 #include "Button.hpp"
 
+#include "Settings.hpp"
+
 #include <Arduino.h>
 
 Button::Button(uint8_t pin) {
     Button::pin = pin;
+    Button::press = false;
     Button::state = false;
-    Button::pressed = false;
-    Button::lastDebounce = millis();
-    Button::debounceDelay = 160;
     Button::lastState = false;
-
+    Button::lastDebounce = millis();
     pinMode(Button::pin, INPUT_PULLUP);
 }
 
-Button::~Button() {
-
-}
-
-bool Button::isPressed() {
-    return Button::pressed;
+bool Button::onPress() {
+    return Button::press;
 }
 
 void Button::update() {
@@ -28,9 +24,9 @@ void Button::update() {
         Button::lastDebounce = millis();
     }
 
-    if((millis() - Button::lastDebounce) > Button::debounceDelay) {
+    if((millis() - Button::lastDebounce) > BUTTON_DEBOUNCE) {
         bool oldRead = Button::state;
-        Button::pressed = !oldRead && newRead;
+        Button::press = !oldRead && newRead;
         Button::state = newRead;
     }
 
