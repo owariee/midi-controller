@@ -9,7 +9,6 @@ private:
 
 public:
     LED(uint8_t pin);
-    ~LED();
 
     void on();
     void off();

@@ -4,12 +4,7 @@
 
 LED::LED(uint8_t pin) {
     LED::pin = pin;
-
     pinMode(LED::pin, OUTPUT);
-}
-
-LED::~LED() {
-
 }
 
 void LED::on() {
