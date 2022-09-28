@@ -1,6 +1,6 @@
 # midi-controller
 
-This project is a implementation of firmware for a midi controller using Arduino Mega.
+This is a midi controller firmware implementation for Arduino Mega.
 
 ## Requirements
 
