@@ -1,5 +1,5 @@
-#ifdef AVR // or whatever -- check the compiler docs, I don't know the standard way to check this offhand
-# define NO_CSTDINT 1  // AVR arduino has no <cstdint>; but we're coding to portable C++. So substitute.
+#ifdef AVR
+# define NO_CSTDINT 1  // AVR arduino has no <cstdint>; but we're coding to portable C++.
 #endif
 
 // unless we know otherwise, use the compiler's <cstdint>
