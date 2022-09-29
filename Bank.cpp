@@ -1,9 +1,8 @@
 #include "Bank.hpp"
 
-#include "Settings.hpp"
-
-Bank::Bank() {
-    Bank::effects = new bool[MIDI_EFFECTS]();
+Bank::Bank(uint8_t effectsNumber) {
+    Bank::effectsNumber = effectsNumber;
+    Bank::effects = new bool[Bank::effectsNumber]();
 }
 
 Bank::~Bank() {
@@ -11,12 +10,12 @@ Bank::~Bank() {
 }
 
 bool Bank::getEffect(uint8_t index) {
-    if(index >= MIDI_EFFECTS) return false;
+    if(index >= Bank::effectsNumber) return false;
     return Bank::effects[index];
 }
 
 void Bank::setEffect(uint8_t index, bool state) {
-    if(index >= MIDI_EFFECTS) return;
+    if(index >= Bank::effectsNumber) return;
     Bank::effects[index] = state;
 }
 

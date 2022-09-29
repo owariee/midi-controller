@@ -7,8 +7,9 @@
 class BankC { // Bank Controller
 private:
     uint8_t offset;
+    uint8_t offsetMax;
     uint8_t* bankId;
-    Bank* bank;
+    Bank** bank;
     Mappings* map;
 
     void drawLCD();

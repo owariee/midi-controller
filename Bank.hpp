@@ -5,10 +5,11 @@
 
 class Bank {
 private:
+    uint8_t effectsNumber;
     bool* effects;
 
 public:
-    Bank();
+    Bank(uint8_t effects);
     ~Bank();
 
     bool getEffect(uint8_t index);
