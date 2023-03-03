@@ -6,6 +6,8 @@
 
 class BankC { // Bank Controller
 private:
+    uint32_t writableCount;
+    bool writableMode;
     uint8_t offset;
     uint8_t offsetMax;
     uint8_t* bankId;

@@ -14,6 +14,8 @@ public:
 
     bool getEffect(uint8_t index);
     void setEffect(uint8_t index, bool state);
+    void EEPROMwrite(uint8_t bankIndex);
+    void EEPROMread(uint8_t bankIndex);
 };
 
 #endif//BANK_HPP

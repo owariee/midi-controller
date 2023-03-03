@@ -5,12 +5,14 @@
 
 class LED {
 private:
+    bool state;
     uint8_t pin;
 
 public:
     LED(uint8_t pin);
 
     void set(bool state);
+    bool get();
 };
 
 #endif//LED_HPP

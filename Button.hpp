@@ -8,13 +8,17 @@ private:
     uint8_t pin;
     bool state;
     bool press;
+    bool pressed;
+    bool release;
     bool lastState;
     uint32_t lastDebounce;
     
 public:
     Button(uint8_t pin);
 
+    bool isPressed();
     bool onPress();
+    bool onRelease();
     void update();
 };
 
