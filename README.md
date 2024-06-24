@@ -6,34 +6,28 @@ This is a midi controller firmware implementation for Arduino Mega.
 
 ### Arch Linux
 
-```
+```sh
 $ pacman -S arduino-cli
 ```
 or
-```
+```sh
 $ yay -S arduino-cli
 ```
 
-## Install dependencies
+## Install dependencies, build and upload code
 
 In your terminal:
 
-```
-$ arduino-cli lib install LiquidCrystal@1.0.7
-```
-
-## How to compile
-
-Adjust the compile.sh to your needs and:
-
-```
-$ ./compile.sh
+```sh
+$ cd mega2560
+$ make deps
+$ make build
+$ make upload
 ```
 
-## How to upload
+or
 
-Adjust the upload.sh to your needs then:
-
-```
-$ ./upload.sh
+```sh
+$ cd mega2560
+$ make
 ```
